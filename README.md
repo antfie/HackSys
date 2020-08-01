@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/antfie/HackSys/blob/master/LICENSE)
+
 # HackSys
 
 HackSys is a Docker image Anthony uses for penetration testing. It's main features are:
