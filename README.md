@@ -77,7 +77,6 @@ To use MSF Venom:
 #### Kali
 
 ```
-docker pull kalilinux/kali-rolling
 docker run --rm -it --network=container:vpn -v $PWD:/app kalilinux/kali-rolling
 ```
 
