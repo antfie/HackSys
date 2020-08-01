@@ -1,7 +1,5 @@
 FROM alpine
 
-# ~3.56GB
-
 # Package dependencies
 # exploitdb: libxml2-utils, ncurses
 # sqlmap: libxml2-utils python3-dev libxml2-dev libxslt-dev libffi-dev

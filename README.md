@@ -5,7 +5,7 @@
 HackSys is a Docker image Anthony uses for penetration testing. It's main features are:
 
 * Alpine based
-* 3.56GB when built
+* 3.59GB
 * Zsh
 * Lightweight with several security tools installed
 * Development tools installed: Python, Go
@@ -25,13 +25,13 @@ docker pull antfie/hacksys
 Replace `antfie.ovpn` with your openVPN configuration file and run the main VPN container with this:
 
 ```
-docker run -it --rm -v $PWD/antfie.ovpn:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/haksys vpn
+docker run -it --rm -v $PWD/antfie.ovpn:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn
 ```
 
 ### SOCKS5 Proxy (For Burp)
 
 ```
-docker run --rm -it --network=container:vpn --name proxy --entrypoint ssh-proxy antfie/haksys
+docker run --rm -it --network=container:vpn --name proxy --entrypoint ssh-proxy antfie/hacksys
 ```
 
 ### General Host
@@ -39,7 +39,7 @@ docker run --rm -it --network=container:vpn --name proxy --entrypoint ssh-proxy 
 Use this command for most activities:
 
 ```
-docker run --rm -it --network=container:vpn -v $PWD:/app antfie/haksys
+docker run --rm -it --network=container:vpn -v $PWD:/app antfie/hacksys
 ```
 
 To mount stuff e.g. NFS shares you will need to add this parameter `--cap-add SYS_ADMIN`.
@@ -85,7 +85,7 @@ docker pull kalilinux/kali-rolling
 Then build:
 
 ```
-docker build -t antfie/haksys .
+docker build -t antfie/hacksys .
 ```
 
 ## Docker Maintenance
