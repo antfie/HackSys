@@ -10,23 +10,13 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
 * Easy to add in new capabilities via `apk add`
 * Has a built-in SOCKS5 proxy (via SSH tunnel)
 
-## Building
+## Running
 
-First update your images. Feel free to omit metasploit and/or kali if not desired:
-
-```
-docker pull alpine
-docker pull metasploitframework/metasploit-framework
-docker pull kalilinux/kali-rolling
-```
-
-Then build:
+First pull down the latest container:
 
 ```
-docker build -t antfie/haksys .
+docker pull antfie/hacksys
 ```
-
-## Running 
 
 ### VPN
 
@@ -78,6 +68,22 @@ To use MSF Venom:
 
 ```
 docker run --rm -it --network=container:vpn -v $PWD:/app kalilinux/kali-rolling
+```
+
+## Building
+
+First update your images. Feel free to omit metasploit and/or kali if not desired:
+
+```
+docker pull alpine
+docker pull metasploitframework/metasploit-framework
+docker pull kalilinux/kali-rolling
+```
+
+Then build:
+
+```
+docker build -t antfie/haksys .
 ```
 
 ## Docker Maintenance
