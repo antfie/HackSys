@@ -74,17 +74,8 @@ docker run --rm -it --network=container:vpn -v $PWD:/app kalilinux/kali-rolling
 
 ## Building
 
-First update your images. Feel free to omit metasploit and/or kali if not desired:
-
 ```
 docker pull alpine
-docker pull metasploitframework/metasploit-framework
-docker pull kalilinux/kali-rolling
-```
-
-Then build:
-
-```
 docker build -t antfie/hacksys .
 ```
 
