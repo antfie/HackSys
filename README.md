@@ -7,8 +7,19 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
 * Alpine based
 * 3.59GB
 * Zsh
-* Lightweight with several security tools installed
-* Development tools installed: Python, Go
+* Lightweight with several security tools installed:
+  * nmap
+  * sqlmap
+  * impacket
+  * SecLists
+  * searchsploit
+  * [evil-winrm](https://github.com/Hackplayers/evil-winrm)
+  * [CeWL](https://digi.ninja/projects/cewl.php)
+* Development tools installed:
+  * Python
+  * Go
+  * Java
+  * Ruby
 * Easy to add in new capabilities via `apk add`
 * Has a built-in SOCKS5 proxy (via SSH tunnel)
 
