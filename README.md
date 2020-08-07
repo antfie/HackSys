@@ -9,8 +9,8 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
 * Zsh
 * Lightweight with several security tools installed:
   * nmap
-  * sqlmap
-  * impacket
+  * [sqlmap](http://sqlmap.org/)
+  * [impacket](https://github.com/SecureAuthCorp/impacket)
   * SecLists
   * searchsploit
   * [evil-winrm](https://github.com/Hackplayers/evil-winrm)
