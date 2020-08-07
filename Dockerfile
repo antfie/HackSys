@@ -3,9 +3,11 @@ FROM alpine
 # Package dependencies
 # exploitdb: libxml2-utils, ncurses
 # sqlmap: libxml2-utils python3-dev libxml2-dev libxslt-dev libffi-dev
+# wfuzz: py-curl
 
 # Pip dependencies
 # impacket: flask ldap3 ldapdomaindump pycryptodomex
+# wfuzz: shodan
 
 # Ruby dependencies
 # CeWL: exiftool, json gem
@@ -13,8 +15,8 @@ FROM alpine
 
 RUN apk update && apk upgrade && apk add openvpn nmap nmap-scripts git tmux zsh lynx python3 \
     libxml2-utils python3-dev libxml2-dev libxslt-dev libffi-dev py-pip openssl-dev htop curl openssl vim file go nikto \
-    openssh bash py3-impacket tcpdump ncurses exiftool john openjdk10 which radare2 ruby ruby-bundler ruby-dev make krb5 \
-    && pip install --upgrade requests colorama beautifulsoup4 scrapy sqlmap flask ldap3 ldapdomaindump pycryptodomex \
+    openssh bash py3-impacket tcpdump ncurses exiftool john openjdk10 which radare2 ruby ruby-bundler ruby-dev make krb5 py-curl \
+    && pip install --upgrade requests colorama beautifulsoup4 scrapy sqlmap flask ldap3 ldapdomaindump pycryptodomex wfuzz shodan \
     && gem install json evil-winrm bigdecimal \
     && ln -sf /usr/bin/python3 /usr/local/bin/python \
     && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \

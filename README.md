@@ -5,9 +5,8 @@
 HackSys is a Docker image Anthony uses for penetration testing. It's main features are:
 
 * Alpine based
-* 3.59GB
-* Zsh
-* Lightweight with several security tools installed:
+* <4GB
+* Security tools installed:
   * nmap
   * [sqlmap](http://sqlmap.org/)
   * [impacket](https://github.com/SecureAuthCorp/impacket)
@@ -15,6 +14,7 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
   * searchsploit
   * [evil-winrm](https://github.com/Hackplayers/evil-winrm)
   * [CeWL](https://digi.ninja/projects/cewl.php)
+  * wfuzz
 * Development tools installed:
   * Python
   * Go
@@ -22,6 +22,7 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
   * Ruby
 * Easy to add in new capabilities via `apk add`
 * Has a built-in SOCKS5 proxy (via SSH tunnel)
+* Zsh
 
 ## Running
 
@@ -98,3 +99,12 @@ Remove all containers and images:
 docker rm -f $(docker ps -a -q)
 docker rmi $(docker images -q)
 ```
+
+
+
+---
+
+
+Found the foothold user pretty quickly. Made my list OK (it turns out it did include the correct pw). There is some code I adapted to find the right password, but it didn't work (need to understand why at some point). After several hours of scratching around I entered the correct password manually as it stood out to me.
+From there getting user and root were pretty quick, but learnt some good stuff along the way. Thanks to @egotisticalSW for the fun box!
+Feel free to reach out if you need a nudge.
