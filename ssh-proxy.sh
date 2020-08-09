@@ -15,4 +15,4 @@ sed -i 's/AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config
 echo "ListenAddress 127.0.0.1" >> /etc/ssh/sshd_config
 /usr/sbin/sshd
 echo "Starting SSH proxy on port 9090"
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /root/id -D 0.0.0.0:9090 -N ssh@127.0.0.1
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /root/id -D `/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`:9090 -N ssh@127.0.0.1
