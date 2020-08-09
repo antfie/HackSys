@@ -21,7 +21,7 @@ RUN apk update && apk upgrade && apk add openvpn nmap nmap-scripts git tmux zsh 
     && ln -sf /usr/bin/python3 /usr/local/bin/python \
     && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     && go get github.com/OJ/gobuster \
-    && git clone https://github.com/danielmiessler/SecLists.git /tools/SecLists \
+    && git clone https://github.com/danielmiessler/SecLists.git /tools/SecLists && rm -rf /tools/SecLists/.* \
     && git clone https://github.com/offensive-security/exploitdb.git /opt/exploitdb \
     && ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit \
     && git clone https://github.com/digininja/CeWL.git /tools/CeWL \

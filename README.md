@@ -34,10 +34,10 @@ docker pull antfie/hacksys
 
 ### VPN
 
-Replace `antfie.ovpn` with your openVPN configuration file and run the main VPN container with this:
+Ensure there is a single openVPN configuration file within the curreent directory and run the main VPN container with this:
 
 ```
-docker run -it --rm -v $PWD/antfie.ovpn:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn
+docker run --rm -it -v $PWD/`ls *.ovpn`:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn
 ```
 
 ### SOCKS5 Proxy (For Burp)
@@ -100,11 +100,13 @@ docker rm -f $(docker ps -a -q)
 docker rmi $(docker images -q)
 ```
 
+## Useful Shell Aliases
 
-
----
-
-
-Found the foothold user pretty quickly. Made my list OK (it turns out it did include the correct pw). There is some code I adapted to find the right password, but it didn't work (need to understand why at some point). After several hours of scratching around I entered the correct password manually as it stood out to me.
-From there getting user and root were pretty quick, but learnt some good stuff along the way. Thanks to @egotisticalSW for the fun box!
-Feel free to reach out if you need a nudge.
+```zsh
+alias hsv='dr -v $PWD/`ls *.ovpn`:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn'
+alias hsp='dr --network=container:vpn --name proxy --entrypoint ssh-proxy antfie/hacksys'
+alias hs='dr --network=container:vpn -v $PWD:/app antfie/hacksys'
+alias hsm='dr --network=container:vpn -v $PWD:/app metasploitframework/metasploit-framework'
+alias hsmv='dr --network=container:vpn -v $PWD:/app --entrypoint bash metasploitframework/metasploit-framework'
+alias hsk='dr --network=container:vpn -v $PWD:/app kalilinux/kali-rolling'
+```
