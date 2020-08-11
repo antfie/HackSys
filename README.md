@@ -112,7 +112,7 @@ docker rmi $(docker images -q)
 
 ```zsh
 alias hsv='dr -v $PWD/`ls *.ovpn`:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn'
-alias hsp='dr --network=container:vpn --name proxy --entrypoint ssh-proxy antfie/hacksys'
+alias hsp='dr --network=container:vpn --name proxy --entrypoint proxy antfie/hacksys'
 alias hs='dr --network=container:vpn -v $PWD:/app antfie/hacksys'
 alias hsm='dr --network=container:vpn -v $PWD:/app metasploitframework/metasploit-framework'
 alias hsmv='dr --network=container:vpn -v $PWD:/app --entrypoint bash metasploitframework/metasploit-framework'

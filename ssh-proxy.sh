@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 lport=15819 # Local port
 eport=9090  # Exposed port
