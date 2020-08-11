@@ -17,5 +17,5 @@ echo "Port $lport" >> /etc/ssh/sshd_config
 echo "ListenAddress 127.0.0.1" >> /etc/ssh/sshd_config
 /usr/sbin/sshd
 
-echo "\e[92mSOCKS5 proxy listening on port $eport\e[0m"
+echo -e "\e[92mSOCKS5 proxy listening on port $eport\e[0m"
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /root/id -D `/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`:$eport -N -p $lport ssh@127.0.0.1

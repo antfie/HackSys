@@ -30,5 +30,5 @@ echo "ListenAddress 127.0.0.1" >> /etc/ssh/sshd_config
 echo "Port $lport" >> /etc/ssh/sshd_config
 /usr/sbin/sshd
 
-echo "\e[92mForwarding $FWD_TO to port $eport\e[0m"
+echo -e "\e[92mForwarding $FWD_TO to port $eport\e[0m"
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /root/id -L `/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`:$eport:$FWD_TO -N -p $lport ssh@127.0.0.1
