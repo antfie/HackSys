@@ -21,18 +21,26 @@ RUN apk update && apk upgrade && apk add openvpn nmap nmap-scripts git tmux zsh 
     && ln -sf /usr/bin/python3 /usr/local/bin/python \
     && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     && go get github.com/OJ/gobuster \
+    && git clone --depth=1 https://github.com/SecureAuthCorp/impacket.git /tools/impacket && cd /tools/impacket && pip install . \
     && git clone --depth=1 https://github.com/danielmiessler/SecLists.git /tools/SecLists \
-    && git clone --depth=1 https://github.com/offensive-security/exploitdb.git /opt/exploitdb \
-    && ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit \
-    && git clone --depth=1 https://github.com/digininja/CeWL.git /tools/CeWL \
-    && cd /tools/CeWL && bundle update --bundler && bundle install \
+    && git clone --depth=1 https://github.com/offensive-security/exploitdb.git /opt/exploitdb && ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit \
+    && git clone --depth=1 https://github.com/digininja/CeWL.git /tools/CeWL && cd /tools/CeWL && bundle update --bundler && bundle install \
     && ln -sf /tools/CeWL/cewl.rb /usr/local/bin/cewl \
     && ln -sf /usr/bin/nikto.pl /usr/local/bin/nikto \
     && ln -sf /usr/bin/vim /usr/bin/vi \
     && echo -n 'export PATH=/usr/lib/jvm/default-jvm/bin:~/go/bin:$PATH' >> ~/.zshrc \
     && echo -n 'export PATH=/usr/lib/jvm/default-jvm/bin:~/go/bin:$PATH' >> ~/.bashrc
 
-COPY ssh-proxy.sh /usr/local/bin/ssh-proxy
+
+# TODO:
+#     && git clone --depth=1 gttps://github.com/lgandx/Responder.git /tools/responder \
+
+COPY impacket.sh /usr/local/bin/impacket-smbserver
+COPY impacket.sh /usr/local/bin/impacket-wmiexec
+COPY impacket.sh /usr/local/bin/impacket-psexec
+
+COPY ssh-proxy.sh /usr/local/bin/proxy
+COPY ssh-fwd.sh /usr/local/bin/fwd
 
 ENV TERM xterm-256color
 ENV JAVA_HOME /usr/lib/jvm/default-jvm

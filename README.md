@@ -37,13 +37,21 @@ docker pull antfie/hacksys
 Ensure there is a single openVPN configuration file within the curreent directory and run the main VPN container with this:
 
 ```
-docker run --rm -it -v $PWD/`ls *.ovpn`:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn
+docker run --rm -it -v $PWD/`ls *.ovpn`:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 127.0.0.1:9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn
 ```
 
 ### SOCKS5 Proxy (For Burp)
 
 ```
-docker run --rm -it --network=container:vpn --name proxy --entrypoint ssh-proxy antfie/hacksys
+docker run --rm -it --network=container:vpn --name proxy --entrypoint proxy antfie/hacksys
+```
+
+### Port Forward
+
+To port forward for example RDP (3389) from 192.168.162.120:
+
+```
+docker run --rm -it --network=container:vpn --entrypoint fwd -e FWD_TO=192.168.162.120:3389 antfie/hacksys
 ```
 
 ### General Host
