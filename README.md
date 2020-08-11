@@ -16,7 +16,7 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
   * [CeWL](https://digi.ninja/projects/cewl.php)
   * wfuzz
 * Development tools installed:
-  * Python
+  * Python 2 and 3, with common pip modules (requests colorama beautifulsoup4 scrapy)
   * Go
   * Java
   * Ruby
