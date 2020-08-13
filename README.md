@@ -92,6 +92,18 @@ To use MSF Venom:
 docker run --rm -it --network=container:vpn -v $PWD:/app kalilinux/kali-rolling
 ```
 
+You may want to upgrade with:
+
+```
+apt-get update && apt-upt install -y kali-linux-default
+```
+
+#### Parrot
+
+```
+docker run --rm -it --network=container:vpn -v $PWD:/app parrotsec/security
+```
+
 ## Building
 
 ```
@@ -111,10 +123,11 @@ docker rmi $(docker images -q)
 ## Useful Shell Aliases
 
 ```zsh
-alias hsv='dr -v $PWD/`ls *.ovpn`:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 127.0.0.1:9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn'
-alias hsp='dr --network=container:vpn --name proxy --entrypoint proxy antfie/hacksys'
-alias hs='dr --network=container:vpn -v $PWD:/app antfie/hacksys'
-alias hsm='dr --network=container:vpn -v $PWD:/app metasploitframework/metasploit-framework'
-alias hsmv='dr --network=container:vpn -v $PWD:/app --entrypoint bash metasploitframework/metasploit-framework'
-alias hsk='dr --network=container:vpn -v $PWD:/app kalilinux/kali-rolling'
+alias hsv='docker run --rm -it -v $PWD/`ls *.ovpn`:/app/vpn --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -p 127.0.0.1:9000-9100:9000-9100 --sysctl net.ipv6.conf.all.disable_ipv6=0 --entrypoint openvpn antfie/hacksys vpn'
+alias hsp='docker run --rm -it --network=container:vpn --name proxy --entrypoint proxy antfie/hacksys'
+alias hs='docker run --rm -it --network=container:vpn -v $PWD:/app antfie/hacksys'
+alias hsm='docker run --rm -it --network=container:vpn -v $PWD:/app metasploitframework/metasploit-framework'
+alias hsmv='docker run --rm -it --network=container:vpn -v $PWD:/app --entrypoint bash metasploitframework/metasploit-framework'
+alias hsk='docker run --rm -it --network=container:vpn -v $PWD:/app kalilinux/kali-rolling'
+alias hsps='docker run --rm -it --network=container:vpn -v $PWD:/app parrotsec/security'
 ```
