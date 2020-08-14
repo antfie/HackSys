@@ -5,7 +5,7 @@
 HackSys is a Docker image Anthony uses for penetration testing. It's main features are:
 
 * Alpine based
-* <4GB
+* <3GB
 * Security tools installed:
   * nmap
   * [sqlmap](http://sqlmap.org/)
@@ -115,15 +115,6 @@ apt-get update && apt-upt install -y parrot-tools
 ```
 docker pull alpine
 docker build -t antfie/hacksys .
-```
-
-## Docker Maintenance
-
-Remove all containers and images:
-
-```
-docker rm -f $(docker ps -a -q)
-docker rmi $(docker images -q)
 ```
 
 ## Useful Shell Aliases
