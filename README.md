@@ -104,6 +104,12 @@ apt-get update && apt-upt install -y kali-linux-default
 docker run --rm -it --network=container:vpn -v $PWD:/app parrotsec/security
 ```
 
+You may want to upgrade with:
+
+```
+apt-get update && apt-upt install -y parrot-tools
+```
+
 ## Building
 
 ```
