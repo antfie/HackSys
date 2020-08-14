@@ -22,10 +22,10 @@ RUN apk update && apk upgrade && apk add openvpn nmap nmap-scripts git tmux zsh 
     && ln -sf /usr/bin/python3 /usr/local/bin/python \
     && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     && go get github.com/OJ/gobuster \
-    && git clone --depth=1 https://github.com/SecureAuthCorp/impacket.git /tools/impacket && cd /tools/impacket && pip install . \
-    && git clone --depth=1 https://github.com/danielmiessler/SecLists.git /tools/SecLists \
-    && git clone --depth=1 https://github.com/offensive-security/exploitdb.git /opt/exploitdb && ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit \
-    && git clone --depth=1 https://github.com/digininja/CeWL.git /tools/CeWL && cd /tools/CeWL && bundle update --bundler && bundle install \
+    && git clone --depth=1 https://github.com/SecureAuthCorp/impacket.git /tools/impacket && rm -rf /tools/impacket/.git && cd /tools/impacket && pip install . \
+    && git clone --depth=1 https://github.com/danielmiessler/SecLists.git /tools/SecLists && rm -rf /tools/SecLists/.git \
+    && git clone --depth=1 https://github.com/offensive-security/exploitdb.git /opt/exploitdb && rm -rf /opt/exploitdb/.git && ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit \
+    && git clone --depth=1 https://github.com/digininja/CeWL.git /tools/CeWL && rm -rf /tools/CeWL/.git && cd /tools/CeWL && bundle update --bundler && bundle install \
     && ln -sf /tools/CeWL/cewl.rb /usr/local/bin/cewl \
     && ln -sf /usr/bin/nikto.pl /usr/local/bin/nikto \
     && ln -sf /usr/bin/vim /usr/bin/vi \
