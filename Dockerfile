@@ -15,9 +15,9 @@ FROM alpine
 
 RUN apk update && apk upgrade && apk add openvpn nmap nmap-scripts git tmux zsh lynx python3 python3-dev \
     libxml2-utils libxml2-dev libxslt-dev libffi-dev py-pip openssl-dev htop curl openssl vim file go nikto python2 python2-dev \
-    openssh bash py3-impacket tcpdump ncurses exiftool john openjdk10 which radare2 ruby ruby-bundler ruby-dev make krb5 py-curl bind-tools \
-    && pip install --upgrade requests colorama beautifulsoup4 scrapy sqlmap flask ldap3 ldapdomaindump pycryptodomex wfuzz shodan \
-    && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python2 get-pip.py && rm get-pip.py && python2 -m pip install requests colorama beautifulsoup4 scrapy \
+    openssh bash py3-impacket tcpdump ncurses exiftool john openjdk10 which radare2 ruby ruby-bundler ruby-dev make krb5 py-curl bind-tools php \
+    && pip install --upgrade requests colorama beautifulsoup4 scrapy sqlmap flask ldap3 ldapdomaindump pycryptodomex wfuzz shodan coloredlogs \
+    && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python2 get-pip.py && rm get-pip.py && python2 -m pip install requests colorama beautifulsoup4 scrapy coloredlogs \
     && gem install json evil-winrm bigdecimal \
     && ln -sf /usr/bin/python3 /usr/local/bin/python \
     && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \

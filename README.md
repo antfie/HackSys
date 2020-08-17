@@ -20,6 +20,7 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
   * Go
   * Java
   * Ruby
+  * PHP
 * Easy to add in new capabilities via `apk add`
 * Has a built-in SOCKS5 proxy (via SSH tunnel)
 * Zsh
@@ -107,7 +108,7 @@ docker run --rm -it --network=container:vpn -v $PWD:/app parrotsec/security
 You may want to upgrade with:
 
 ```
-apt-get update && apt-upt install -y parrot-tools
+apt-get update && apt-get install -y parrot-tools
 ```
 
 ## Building
