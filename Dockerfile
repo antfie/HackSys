@@ -13,7 +13,7 @@ FROM alpine
 # CeWL: exiftool, json gem
 # evil-winrm: krb5 bigdecimal gem
 
-RUN apk update && apk upgrade && apk add openvpn nmap nmap-scripts git tmux zsh lynx python3 python3-dev \
+RUN apk update && apk upgrade && apk add openvpn nmap nmap-scripts git tmux zsh zsh-syntax-highlighting zsh-autosuggestions lynx python3 python3-dev \
     libxml2-utils libxml2-dev libxslt-dev libffi-dev py-pip openssl-dev htop curl openssl vim file go nikto python2 python2-dev \
     openssh bash py3-impacket tcpdump ncurses exiftool john openjdk10 which radare2 ruby ruby-bundler ruby-dev make krb5 py-curl bind-tools php \
     && pip install --upgrade requests colorama beautifulsoup4 scrapy sqlmap flask ldap3 ldapdomaindump pycryptodomex wfuzz shodan coloredlogs \
