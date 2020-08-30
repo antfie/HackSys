@@ -25,6 +25,13 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
 * Has a built-in SOCKS5 proxy (via SSH tunnel)
 * Zsh
 
+Example prompt:
+
+```
+┌──(🔒HackSys@10.10.10.10)-[/app]
+└─#
+```
+
 ## Running
 
 First pull down the latest container:
