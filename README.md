@@ -22,7 +22,8 @@ HackSys is a Docker image Anthony uses for penetration testing. It's main featur
   * Ruby
   * PHP
 * Easy to add in new capabilities via `apk add`
-* Has a built-in SOCKS5 proxy (via SSH tunnel)
+* Built-in SOCKS5 proxy (via SSH tunnel)
+* Simple port forwarding
 * Zsh
 
 Example prompt:
