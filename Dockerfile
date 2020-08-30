@@ -29,8 +29,9 @@ RUN apk update && apk upgrade && apk add openvpn nmap nmap-scripts git tmux zsh 
     && ln -sf /tools/CeWL/cewl.rb /usr/local/bin/cewl \
     && ln -sf /usr/bin/nikto.pl /usr/local/bin/nikto \
     && ln -sf /usr/bin/vim /usr/bin/vi \
-    && echo -n 'export PATH=/usr/lib/jvm/default-jvm/bin:~/go/bin:$PATH' >> ~/.bashrc
-
+    && echo "export PATH=/usr/lib/jvm/default-jvm/bin:~/go/bin:$PATH" >> ~/.bashrc \
+    && echo "StrictHostKeyChecking accept-new" >> /etc/ssh/ssh_config \
+    && echo "LogLevel=Error" >> /etc/ssh/ssh_config
 
 # TODO:
 #     && git clone --depth=1 gttps://github.com/lgandx/Responder.git /tools/responder \
