@@ -203,3 +203,4 @@ if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; th
 fi
 
 export PATH=/usr/lib/jvm/default-jvm/bin:~/go/bin:$PATH
+export LHOST=$my_ip
